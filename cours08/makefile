@@ -46,4 +46,4 @@ testString: testString.cpp
 	g++ -w -g testString.cpp -o testString
 		
 clean: 
-	-del -f *.o testFor_each testString testCopyFichier testTriFichier testFind testBinary_Search testRemove_If testSet_union
+	rm -f *.o testFor_each testString testCopyFichier testTriFichier testFind testBinary_Search testRemove_If testSet_union
