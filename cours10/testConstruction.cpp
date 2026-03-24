@@ -1,7 +1,7 @@
 /*
  * testConstruction.cpp
  *
- *  Created on: 4 mai 2010
+ *  Created on: 24 mars 2026
  *      Author: montacie
  */
 
@@ -9,19 +9,23 @@
 #include <string>
 #include "suds/SSTree.h"
 #include "suds/Tools.h"
-using namespace std;
 
 int main()
 {
-	cout << "lecture au clavier du mot" << endl;
-	//string A; cin >> A;
-	string A ="ABCFABCDABFABCDABCDABDE";
-	SSTree *sst = new SSTree((uchar*)(A.c_str()), A.size()+1);
-	// Affichage de l'arbre de suffixes
+    std::cout << "lecture au clavier du mot" << std::endl;
+
+    // std::string A; std::cin >> A;
+    std::string A = "ABCFABCDABFABCDABCDABDE";
+
+    SSTree* sst = new SSTree(
+        reinterpret_cast<uchar*>(const_cast<char*>(A.c_str())),
+        A.size()
+    );
+
+    // Affichage de l'arbre de suffixes
     sst->PrintTree(0, 0);
+
+    delete sst; // éviter fuite mémoire
 
     return 0;
 }
-
-
-

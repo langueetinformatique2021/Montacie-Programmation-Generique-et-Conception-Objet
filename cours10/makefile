@@ -1,13 +1,13 @@
 all: testConstruction testSearch testLCSS
 		
 testConstruction: testConstruction.o
-	g++ -w -g testConstruction.o  suds.a -o testConstruction.exe
+	g++ -w -g testConstruction.o  suds.a -o testConstruction
 
 testSearch: testSearch.o
-	g++ -w -g testSearch.o  suds.a -o testSearch.exe
+	g++ -w -g testSearch.o  suds.a -o testSearch
 		
 testLCSS: testLCSS.o
-	g++ -w -g testLCSS.o  suds.a -o testLCSS.exe
+	g++ -w -g testLCSS.o  suds.a -o testLCSS
 
 testConstruction.o: testConstruction.cpp
 	g++ -c -w -g testConstruction.cpp
@@ -19,4 +19,4 @@ testLCSS.o: testLCSS.cpp
 	g++ -c -w -g testLCSS.cpp
 					
 clean: 
-	-rm -f *.o *.exe
+	-rm -f *.o testConstruction testSearch testLCSS
