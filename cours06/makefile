@@ -1,10 +1,16 @@
-all: testVector testDeque testList testStack testQueue testIterateur
+all: testVector testDeque testList testStack testQueue testIterateur testArray
 	
 testVector: testVector.cpp
 	g++ -std=c++0x -w -g testVector.cpp -o testVector
 	
 Date.o: Date.cpp
 	g++ -std=c++0x -c -w -g Date.cpp 
+	
+testArray: testArray.o
+	g++ -w -g testArray.o -o testArray
+	
+testArray.o: testArray.cpp
+	g++ -std=c++0x -fpermissive -c -w -g testArray.cpp 
 	
 testDeque: testDeque.o Date.o
 	g++ -w -g testDeque.o Date.o -o testDeque
@@ -34,4 +40,4 @@ testIterateur.o: testIterateur.cpp
 	g++ -std=c++0x -c -w -g testIterateur.cpp 
 	
 clean: 
-	rm -f *.o testVector testDeque testList testStack testQueue testIterateur
+	rm -f *.o testVector testDeque testList testStack testQueue testIterateur testArray
